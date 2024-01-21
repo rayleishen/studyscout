@@ -29,7 +29,6 @@ const MappedinComponent = () => {
   useEffect(() => {
     const init = async () => {
       try {
-        await getData()
         const venue = await getVenueMaker(options);
         const mapView = await showVenue(document.getElementById("mappedin-map"), venue);
         mapView.FloatingLabels.labelAllLocations({ interactive: true });
@@ -73,6 +72,10 @@ const MappedinComponent = () => {
     init();
   }, []); // Empty dependency array ensures the effect runs only once on mount
 
+  const handleFetchData = () => {
+    // Call the getData function to fetch data when the button is clicked
+    getData();
+  };
 
   return (
     <div>

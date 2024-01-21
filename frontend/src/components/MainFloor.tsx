@@ -1,6 +1,4 @@
 import React from 'react';
-import VenueMap from '../components/VenueMap.jsx';
-
 
 export default function MainFloor() {
   return (
@@ -11,7 +9,6 @@ export default function MainFloor() {
           <div className="darkShade"/>
       </span>
       <div id="mappedInEmbed">
-        <VenueMap/>
       </div>
       <div id="infoContainer">
         <div className="infoContainerLeft">

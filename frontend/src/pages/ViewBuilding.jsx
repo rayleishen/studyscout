@@ -8,11 +8,14 @@ import ChatBar from '../components/ChatBar.tsx';
 export default function ViewBuilding() {
     return (
         <>
-        <NavBar/>
+        <NavBar search={true}/>
         <div id="background">
-            <SideBar/>
-            <MainFloor/>
-            <ChatBar/>
+            <span>
+                <SideBar/>
+                <MainFloor/>
+                <ChatBar/>
+            </span>
+            
         </div>
         </>
     );
