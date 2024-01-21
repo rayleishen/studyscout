@@ -26,17 +26,24 @@ const MappedinComponent = () => {
     }
   };
 
+  async function init() {
+    const venue = await getVenueMaker(options);
+    const mapView = await showVenue(document.getElementById("mappedin-map"), venue);
+  }
+  
+  init();
+
   useEffect(() => {
     const init = async () => {
-      try {
+      // try {
         const venue = await getVenueMaker(options);
         const mapView = await showVenue(document.getElementById("mappedin-map"), venue);
-        mapView.FloatingLabels.labelAllLocations({ interactive: true });
         mapView.addInteractivePolygonsForAllLocations();
+        // mapView.FloatingLabels.labelAllLocations();
         const venueLabels = venue.polygons.map((polygon) => {
           return polygon.externalId ? polygon.externalId : null;
         });
-        console.log(venueLabels)
+        // console.log(venueLabels)
 
         //hardcode for demo:
         venue.polygons.map((polygon) => {
@@ -45,20 +52,20 @@ const MappedinComponent = () => {
           }
         });
 
-        const fullTableIds = fullData.map((table) => {
-          if (table.is_full) {
-            return table.table_id ? table.table_id : null;
-          }
-        });
+        // const fullTableIds = fullData.map((table) => {
+        //   if (table.is_full) {
+        //     return table.table_id ? table.table_id : null;
+        //   }
+        // });
 
-        console.log(fullTableIds)
+        // console.log(fullTableIds)
 
-        venue.polygons.map((polygon) => {
-          if (fullTableIds.includes(polygon.externalId)){
-            mapView.setPolygonColor(polygon, "#BF4320");
-            console.log("bruh")
-          }          
-        });
+        // venue.polygons.map((polygon) => {
+        //   if (fullTableIds.includes(polygon.externalId)){
+        //     mapView.setPolygonColor(polygon, "#BF4320");
+        //     console.log("bruh")
+        //   }          
+        // });
 
         //for testing
         mapView.on(E_SDK_EVENT.CLICK, ({ polygons }) => {
@@ -71,9 +78,9 @@ const MappedinComponent = () => {
 
         console.log(fullData);
 
-      } catch (error) {
-        console.error('Error initializing Mappedin:', error);
-      }
+      // } catch (error) {
+      //   console.error('Error initializing Mappedin:', error);
+      // }
     };
 
     init();
