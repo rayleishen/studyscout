@@ -262,7 +262,7 @@ iframe {
   height: fit-content;
   justify-content: center;
   justify-self: center;
-  margin-left: 30vw;
+  margin-left: 20vw;
   padding-bottom: 40px;
   animation: fadeIn 1s ease-in-out 0.8s forwards;
 }
